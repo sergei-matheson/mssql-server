@@ -3,7 +3,7 @@
 Start a mssql-server instance:
 
 ```sh
-docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -p 1433:1433 -d sergeimatheson/mssql-server:latest
+docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=yourStrong(!)Password' -e 'DATABASE_NAME=my-database' -p 1433:1433 -d sergeimatheson/mssql-server:latest
 ```
 
 ## Configuration
