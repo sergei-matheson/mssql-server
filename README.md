@@ -19,12 +19,12 @@ Requires the following environment vars:
 
 ACCEPT_EULA=Y
 
-SA_PASSWORD=<your_strong_password>
+SA_PASSWORD=your_strong_password
 
 The following environment vars are optional:
 
-DATABASE_NAME=<name_of_db_to_create_on_startup>
+DATABASE_NAME=name_of_db_to_create_on_startup
 
-DATABASE_SETUP_FILE=<path_to_sql_file_to_run_on_startup>
+DATABASE_SETUP_FILE=path_to_sql_file_to_run_on_startup
 
 See base image at [https://hub.docker.com/\_/microsoft-mssql-server](https://hub.docker.com/_/microsoft-mssql-server) for further details.
