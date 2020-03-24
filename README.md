@@ -1,4 +1,4 @@
-# MSSQL Server that creates a database on startup.
+# MSSQL Server that allows database setup on startup.
 
 Start a mssql-server instance that creates an empty database called "my-database":
 
@@ -6,6 +6,29 @@ Start a mssql-server instance that creates an empty database called "my-database
 docker run -e 'ACCEPT_EULA=Y' \
   -e 'SA_PASSWORD=yourStrong(!)Password' \
   -e 'DATABASE_NAME=my-database' \
+  -p 1433:1433 -d sergeimatheson/mssql-server:latest
+```
+
+Start a mssql-server instance that runs an SQL setup file:
+
+```sh
+docker run \
+  -v /tmp/db-creation:/db-creation \
+  -e 'ACCEPT_EULA=Y' \
+  -e 'SA_PASSWORD=yourStrong(!)Password' \
+  -e 'DATABASE_SETUP_FILE=/db-creation/schema.sql' \
+  -p 1433:1433 -d sergeimatheson/mssql-server:latest
+```
+
+Start a mssql-server instance that creates an empty database called "my-database" and *then* runs an SQL setup file:
+
+```sh
+docker run \
+  -v /tmp/db-creation:/db-creation \
+  -e 'ACCEPT_EULA=Y' \
+  -e 'SA_PASSWORD=yourStrong(!)Password' \
+  -e 'DATABASE_NAME=my-database' \
+  -e 'DATABASE_SETUP_FILE=/db-creation/schema.sql' \
   -p 1433:1433 -d sergeimatheson/mssql-server:latest
 ```
 
